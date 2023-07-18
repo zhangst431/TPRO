@@ -1,0 +1,42 @@
+model:
+  backbone:
+    config: mit_b1
+    stride:
+    - 4
+    - 2
+    - 2
+    - 1
+  label_feature_path: medclip/luad_label_fea
+  knowledge_feature_path: clinical_bert/luad_knowledge_fea
+  n_ratio: 0.5
+dataset:
+  name: luad
+  train_root: ../data/LUAD-HistoSeg/train/img
+  val_root: ../data/LUAD-HistoSeg/
+  cls_num_classes: 4
+  input_size:
+  - 224
+  - 224
+work_dir:
+  ckpt_dir: checkpoints
+  pred_dir: predictions
+  train_log_dir: train_log
+train:
+  samples_per_gpu: 10
+  epoch: 8
+  pretrained: true
+  l1: 0.0
+  l2: 0.1
+  l3: 1.0
+  l4: 1.0
+optimizer:
+  type: AdamW
+  learning_rate: 9.0e-05
+  betas:
+  - 0.9
+  - 0.999
+  weight_decay: 0.001
+scheduler:
+  warmup_iter: 0
+  warmup_ratio: 1.0e-06
+  power: 1.0

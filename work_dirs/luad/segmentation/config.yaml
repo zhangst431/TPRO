@@ -1,0 +1,37 @@
+model:
+  backbone:
+    config: mit_b3
+    stride:
+    - 4
+    - 2
+    - 2
+    - 1
+dataset:
+  name: luad
+  train_root: ../data/LUAD-HistoSeg/train
+  val_root: ../data/LUAD-HistoSeg/
+  mask_root: ./work_dirs/luad/classification/predictions
+  seg_num_classes: 5
+  input_size:
+  - 224
+  - 224
+work_dir:
+  ckpt_dir: checkpoints
+  pred_dir: predictions
+  train_log_dir: train_log
+train:
+  samples_per_gpu: 10
+  epoch: 8
+  log_iters: 10
+  pretrained: true
+optimizer:
+  type: AdamW
+  learning_rate: 0.0001
+  betas:
+  - 0.9
+  - 0.999
+  weight_decay: 0.001
+scheduler:
+  warmup_iter: 0
+  warmup_ratio: 1.0e-06
+  power: 1.0

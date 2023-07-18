@@ -1,0 +1,4 @@
+tumor epithelial tissue
+necrosis tissue
+lymphocyte tissue
+tumor-associated stroma tissue
