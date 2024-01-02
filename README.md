@@ -40,9 +40,9 @@ CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 -
 ### Extract Pseudo Labels
 ```bash
 # LUAD-HistoSeg
-python evaluate_cls.py --dataset luad --model_path path/to/classification/model --save_dir ./work_dirs/luad/classification/predictions
+python evaluate_cls.py --dataset luad --model_path path/to/classification/model --save_dir ./work_dirs/luad/classification/predictions --split train
 # BCSS-WSSS
-python evaluate_cls.py --dataset bcss --model_path path/to/classification/model --save_dir ./work_dirs/bcss/classification/predictions
+python evaluate_cls.py --dataset bcss --model_path path/to/classification/model --save_dir ./work_dirs/bcss/classification/predictions --split train
 ```
 
 ### Train a Segmentation Network
